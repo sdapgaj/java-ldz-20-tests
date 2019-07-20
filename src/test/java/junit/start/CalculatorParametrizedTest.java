@@ -26,8 +26,8 @@ public class CalculatorParametrizedTest {
 
     @ParameterizedTest
 //    @CsvSource({"1, 1, 2", "1, -1, 0", "-5, -2, -7"})
-//    @CsvFileSource(resources = "/addTestCases.csv")
-    @MethodSource({"addRandomTestCases", "addPredefinedTestCases"})
+    @CsvFileSource(resources = "/addTestCases.csv")
+//    @MethodSource({"addRandomTestCases", "addPredefinedTestCases"})
     void add_shouldReturnCorrectValue(int a, int b, int expected) {
         //Given
 
