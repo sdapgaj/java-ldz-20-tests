@@ -26,7 +26,6 @@ public class GreeterParametrized {
                 Arguments.arguments("ANDRZEJ", "HELLO ANDRZEJ!"),
                 Arguments.arguments("AnDrZeJ", "Hello AnDrZeJ."),
                 Arguments.arguments("andrzej", "Hello andrzej.")
-
         );
     }
 }
