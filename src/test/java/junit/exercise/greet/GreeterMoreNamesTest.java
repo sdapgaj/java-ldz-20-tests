@@ -5,11 +5,14 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class GreeterMoreNamesTest {
+
+    Greeter greeter = new Greeter();
+
     @Test
     void whenHaveThreeNamesLowerCase(){
         String [] listName = new String [] {"andrzej", "janek", "monika"};
 
-        String result = Greeter.greet(listName);
+        String result = greeter.greet(listName);
 
         Assertions.assertThat(result)
                 .withFailMessage("Result test is failed names.")
@@ -20,7 +23,7 @@ public class GreeterMoreNamesTest {
     void whenHaveThreeNamesUpperCase (){
         String [] listName = new String [] {"ANDRZEJ", "JANEK", "MONIKA"};
 
-        String result = Greeter.greet(listName);
+        String result = greeter.greet(listName);
 
         Assertions.assertThat(result)
                 .withFailMessage("Result test is failed names.")

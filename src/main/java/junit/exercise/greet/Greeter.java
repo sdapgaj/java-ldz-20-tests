@@ -7,13 +7,13 @@ import java.util.stream.Stream;
 
 public class Greeter {
 
-    public static String greet(String ...names) {
+    public String greet(String ...names) {
         if (names.length == 0 || (names.length == 1 && names[0] == null)) {
             return "Hello my friend.";
         }
 
         Map<Boolean, List<String>> groupedNames = Stream.of(names)
-                .collect(Collectors.partitioningBy(Greeter::isAllCapital));
+                .collect(Collectors.partitioningBy((it) -> isAllCapital(it)));
 
         List<String> namesInCapitals = groupedNames.get(true);
         String screamingHello = prepareScreamingHello(namesInCapitals);
@@ -25,7 +25,7 @@ public class Greeter {
         return regularHello + delimiter + screamingHello;
     }
 
-    public static String prepareScreamingHello(List<String> namesInCapitals) {
+    public String prepareScreamingHello(List<String> namesInCapitals) {
         switch (namesInCapitals.size()) {
             case 0:
                 return "";
@@ -37,7 +37,7 @@ public class Greeter {
         }
     }
 
-    public static String prepareRegularHello(List<String> regularNames) {
+    public String prepareRegularHello(List<String> regularNames) {
         switch (regularNames.size()) {
             case 0:
                 return "";
@@ -49,7 +49,7 @@ public class Greeter {
         }
     }
 
-    private static boolean isAllCapital(String text) {
+    private boolean isAllCapital(String text) {
         return text.matches("^[A-Z]*$");
     }
 

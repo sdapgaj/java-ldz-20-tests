@@ -9,6 +9,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class GreeterParametrized {
+
+    Greeter greeter = new Greeter();
+
     @ParameterizedTest
     @MethodSource({"getNameExpected"})
     void greetWithandrzej(String received, String expected) {
@@ -16,7 +19,7 @@ public class GreeterParametrized {
         andrewList[0] = received;
 
         String result;
-        result = Greeter.greet(andrewList);
+        result = greeter.greet(andrewList);
 
         Assertions.assertEquals(expected, result);
     }

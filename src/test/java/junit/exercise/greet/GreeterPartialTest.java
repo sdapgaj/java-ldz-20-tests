@@ -15,11 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GreeterPartialTest {
 
+    Greeter greeter = new Greeter();
+
     @Test
     void emptyName (){
         List<String> listaName = new ArrayList<>();
 
-        String result = Greeter.prepareScreamingHello(listaName);
+        String result = greeter.prepareScreamingHello(listaName);
 
         Assertions.assertEquals("", result);
     }
@@ -29,7 +31,7 @@ class GreeterPartialTest {
         List<String> listaName = new ArrayList<>(1);
         listaName.add("ALICJA");
 
-        String result = Greeter.prepareScreamingHello(listaName);
+        String result = greeter.prepareScreamingHello(listaName);
 
         Assertions.assertEquals("HELLO ALICJA!", result);
     }
@@ -40,7 +42,7 @@ class GreeterPartialTest {
         listaName.add("MAGDA");
         listaName.add("MAKSYMILIAN");
 
-        String result = Greeter.prepareScreamingHello(listaName);
+        String result = greeter.prepareScreamingHello(listaName);
 
         Assertions.assertEquals("HELLO MAGDA AND MAKSYMILIAN!", result);
     }
@@ -53,7 +55,7 @@ class GreeterPartialTest {
         listaName.add("PAWEŁ");
         listaName.add("JAN");
 
-        String result = Greeter.prepareScreamingHello(listaName);
+        String result = greeter.prepareScreamingHello(listaName);
 
         Assertions.assertEquals("HELLO MAGDA, MAKS, PAWEŁ AND JAN!", result);
     }
@@ -62,7 +64,7 @@ class GreeterPartialTest {
     @MethodSource({"prepareParameters"})
     void emptyList(String expectedValue,List<String>listName){
 
-        String result = Greeter.prepareRegularHello(listName);
+        String result = greeter.prepareRegularHello(listName);
 
         Assertions.assertEquals(expectedValue,result);
     }

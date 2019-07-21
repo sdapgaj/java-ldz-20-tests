@@ -10,6 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GreeterTest {
 
+    Greeter greeter = new Greeter();
+
     @Test
     void greetEmptyList() {
         //Given
@@ -17,7 +19,7 @@ class GreeterTest {
 
         //When
         String result;
-        result = Greeter.greet(andrewList);
+        result = greeter.greet(andrewList);
         //Then
         Assertions.assertEquals("Hello my friend.", result, "Lipton");
     }
@@ -31,7 +33,7 @@ class GreeterTest {
 
         //When
         String result;
-        result = Greeter.greet(andrewList);
+        result = greeter.greet(andrewList);
         //Then
         Assertions.assertEquals("Hello my friend.", result, "Nie jest dobrze.");
     }
@@ -45,7 +47,7 @@ class GreeterTest {
 
         //When
         String result;
-        result = Greeter.greet(andrewList);
+        result = greeter.greet(andrewList);
         //Then
         Assertions.assertEquals("HELLO ANDRZEJ!", result, "Nie jest dobrze.");
     }
@@ -56,7 +58,7 @@ class GreeterTest {
         andrewList[0] = "AnDrZeJ";
 
         String result;
-        result = Greeter.greet(andrewList);
+        result = greeter.greet(andrewList);
 
         Assertions.assertEquals("Hello AnDrZeJ.", result);
     }
@@ -67,7 +69,7 @@ class GreeterTest {
         andrewList[0] = "andrzej";
 
         String result;
-        result = Greeter.greet(andrewList);
+        result = greeter.greet(andrewList);
 
         Assertions.assertEquals("Hello andrzej.", result);
     }
