@@ -16,35 +16,37 @@ public class Greeter {
                 .collect(Collectors.partitioningBy(Greeter::isAllCapital));
 
         List<String> namesInCapitals = groupedNames.get(true);
-        String screamingHello;
-        switch (namesInCapitals.size()) {
-            case 0:
-                screamingHello = "";
-                break;
-            case 1:
-                screamingHello = "HELLO " + namesInCapitals.get(0) + "!";
-                break;
-            default:
-                Integer lastNameIndex = namesInCapitals.size() - 1;
-                screamingHello = "HELLO " + String.join(", ", namesInCapitals.subList(0, lastNameIndex)) + " AND " + namesInCapitals.get(lastNameIndex) + "!";
-        }
+        String screamingHello = prepareScreamingHello(namesInCapitals);
 
         List<String> regularNames = groupedNames.get(false);
-        String regularHello;
-        switch (regularNames.size()) {
-            case 0:
-                regularHello = "";
-                break;
-            case 1:
-                regularHello = "Hello " + regularNames.get(0) + ".";
-                break;
-            default:
-                Integer lastNameIndex = regularNames.size() - 1;
-                regularHello = "Hello " + String.join(", ", regularNames.subList(0, lastNameIndex)) + " and " + regularNames.get(lastNameIndex) + ".";
-        }
+        String regularHello = prepareRegularHello(regularNames);
 
         String delimiter = !regularHello.isEmpty() && !screamingHello.isEmpty() ? " " : "";
         return regularHello + delimiter + screamingHello;
+    }
+
+    public static String prepareScreamingHello(List<String> namesInCapitals) {
+        switch (namesInCapitals.size()) {
+            case 0:
+                return "";
+            case 1:
+                return "HELLO " + namesInCapitals.get(0) + "!";
+            default:
+                Integer lastNameIndex = namesInCapitals.size() - 1;
+                return "HELLO " + String.join(", ", namesInCapitals.subList(0, lastNameIndex)) + " AND " + namesInCapitals.get(lastNameIndex) + "!";
+        }
+    }
+
+    public static String prepareRegularHello(List<String> regularNames) {
+        switch (regularNames.size()) {
+            case 0:
+                return "";
+            case 1:
+                return "Hello " + regularNames.get(0) + ".";
+            default:
+                Integer lastNameIndex = regularNames.size() - 1;
+                return "Hello " + String.join(", ", regularNames.subList(0, lastNameIndex)) + " and " + regularNames.get(lastNameIndex) + ".";
+        }
     }
 
     private static boolean isAllCapital(String text) {
