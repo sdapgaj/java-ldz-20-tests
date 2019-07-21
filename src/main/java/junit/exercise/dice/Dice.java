@@ -18,6 +18,9 @@ public class Dice {
         if (genre.equals("PAIR")) {
             return 4 * multiplier;
         }
+        if (genre.equals("THREE")) {
+            return 6 * multiplier;
+        }
         return 0;
     }
 }

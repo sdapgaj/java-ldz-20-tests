@@ -26,7 +26,8 @@ class DiceTest {
                 Arguments.arguments(Arrays.asList(2,2,2,5,5), "FULL", false, 16),
                 Arguments.arguments(Arrays.asList(2,2,2,5,5), "FULL", true, 32),
                 Arguments.arguments(Arrays.asList(2,2,4,1,5), "PAIR", false, 4),
-                Arguments.arguments(Arrays.asList(2,2,4,1,5), "PAIR", true, 8)
+                Arguments.arguments(Arrays.asList(2,2,4,1,5), "PAIR", true, 8),
+                Arguments.arguments(Arrays.asList(2,2,2,1,5), "THREE", true, 12)
         );
     }
 
