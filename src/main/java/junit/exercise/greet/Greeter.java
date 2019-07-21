@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 public class Greeter {
 
     public String greet(String ...names) {
-        if (names.length == 0 || (names.length == 1 && names[0] == null)) {
+        if (names == null || names.length == 0 || (names.length == 1 && names[0] == null)) {
             return "Hello my friend.";
         }
 
