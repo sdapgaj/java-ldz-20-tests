@@ -30,7 +30,13 @@ class DiceTest {
                 Arguments.arguments(Arrays.asList(2,2,2,1,5), "THREE", true, 12),
                 Arguments.arguments(Arrays.asList(2,2,2,2,5), "FOUR", false, 8),
                 Arguments.arguments(Arrays.asList(3,3,3,3,5), "FOUR", false, 12),
-                Arguments.arguments(Arrays.asList(5,3,3,3,3), "FOUR", false, 12)
+                Arguments.arguments(Arrays.asList(5,3,3,3,3), "FOUR", false, 12),
+                Arguments.arguments(Arrays.asList(5,3,3,3,3), "FOUR", true, 24),
+                Arguments.arguments(Arrays.asList(3,3,3,5,6), "FOUR", true, 0),
+                Arguments.arguments(Arrays.asList(3,3,5,3,3), "FOUR", true, 24),
+                Arguments.arguments(Arrays.asList(3,3,5,5,1), "TWO PAIRS", false, 16),
+                Arguments.arguments(Arrays.asList(1,2,3,4,5), "LOW STRIT", false, 15),
+                Arguments.arguments(Arrays.asList(2,1,5,4,3), "LOW STRIT", false, 15)
         );
     }
 
